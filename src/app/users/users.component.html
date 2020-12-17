@@ -5,7 +5,12 @@ users works!
 <div class="users">
   <div class="user" *ngFor="let user of users">
     <p>Name: {{ user.name }}</p>
+    <input type="text" [(ngModel)]="user.name">
     <p>Username: {{ user.username }}</p>
     <p>phone: {{ user.phone }}</p>
+    <p>id: {{ user.id }}</p>
+    <button class="button" (click)="deleteUser(user.id)">Delete User</button>
+    <button class="delete" title="delete user"
+    (click)="delete(user)">Delete</button>
   </div>
 </div>
