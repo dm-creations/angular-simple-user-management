@@ -21,10 +21,14 @@
   <div class="user" *ngFor="let user of users">
     <div *ngIf="user">
       <div class="read-only">
+        <div class="id-img">
+          <img class="avatar" src="assets/svg/person.svg">
+          <span class="id-num">{{ user.id }}</span>
+        </div>
         <p>Name: {{ user.name }}</p>
         <p>Username: {{ user.username }}</p>
         <p>phone: {{ user.phone }}</p>
-        <p>id: {{ user.id }}</p>
+        <!-- <p>id: {{ user.id }}</p> -->
         <button class="delete" title="delete user" (click)="delete(user)">Delete</button>
         <button class="button edit" title="edit user" (click)="editUser()">Edit All</button>
       </div>
