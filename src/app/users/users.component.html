@@ -1,5 +1,5 @@
-<h1>Users Page</h1>
-<h2>Add New User</h2>
+<h1 class="title h1">Users Page</h1>
+<h2 class="black">Add New User</h2>
 <div class="users">
   <div  *ngIf="addUser == true" class="new-user change">
         <label>Name: 
@@ -17,18 +17,22 @@
         <br />
         <button class="submit" (click)="submit(newUser)">Submit</button>
   </div>
-  <h2>All Users</h2>
+  <h2 class="black">All Users</h2>
   <div class="user" *ngFor="let user of users">
     <div *ngIf="user">
       <div class="read-only">
-        <div class="id-img">
-          <img class="avatar" src="assets/svg/person.svg">
-          <span class="id-num">{{ user.id }}</span>
+        <div class="card">
+          <div class="id-img">
+            <img class="avatar" src="https://raw.githubusercontent.com/dm-creations/angular-simple-user-management/master/src/assets/svg/person.svg">
+            <span class="id-num">{{ user.id }}</span>
+          </div>
+          <div class="fields">
+            <p class="title">{{ user.name }}</p>
+            <p>Username: {{ user.username }}</p>
+            <p>phone: {{ user.phone }}</p>
+            <!-- <p>id: {{ user.id }}</p> -->
+          </div>
         </div>
-        <p>Name: {{ user.name }}</p>
-        <p>Username: {{ user.username }}</p>
-        <p>phone: {{ user.phone }}</p>
-        <!-- <p>id: {{ user.id }}</p> -->
         <button class="delete" title="delete user" (click)="delete(user)">Delete</button>
         <button class="button edit" title="edit user" (click)="editUser()">Edit All</button>
       </div>
@@ -37,7 +41,7 @@
         <input type="text" [(ngModel)]="user.username">
         <input type="text" [(ngModel)]="user.phone">
         <input type="text" [(ngModel)]="user.name">
-        <button class="save" (click)="editUser()">Save Changes</button>
+        <button class="submit save" (click)="editUser()">Save Changes</button>
       </div>
     </div>
   </div>
