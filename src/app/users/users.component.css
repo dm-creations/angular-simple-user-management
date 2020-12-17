@@ -27,7 +27,7 @@
   border-radius: 8px;
   color: white;
 }
-.user div {
+.user div, .new-user.change div {
   box-sizing: border-box;
   padding: 0.3em;
   width:100%;
@@ -58,9 +58,26 @@
   margin: 1em auto;
   flex-direction: column;
 }
-.user .change input {
+.user .change input, .new-user.change {
   width: 50%;
 }
 .user .change {
   text-align: -webkit-center;
+}
+.new-user.change {
+  width: 200px;
+}
+@media all and (min-width: 767px) {
+  .users {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .user {
+    margin: 0;
+  }
+  .new-user.change {
+    width: 300px;
+  }
 }

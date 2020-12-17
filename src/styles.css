@@ -8,6 +8,9 @@ body {
 h1, .h1 {
   font-size: 2em;
 }
+h1.title {
+  font-size: 2em;
+}
 a {
   cursor: pointer;
   color: #1976d2;
@@ -67,4 +70,10 @@ button.submit {
 
 .delete {
   background-color: rgb(218, 47, 47)
+}
+@media all and (min-width: 767px) {
+  body {
+    max-width: 2000px;
+    margin: 0 auto;
+  }
 }
