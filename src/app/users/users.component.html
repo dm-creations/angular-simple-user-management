@@ -1,0 +1,11 @@
+<p>
+users works!
+</p>
+<h2>All Users</h2>
+<div class="users">
+  <div class="user" *ngFor="let user of users">
+    <p>Name: {{ user.name }}</p>
+    <p>Username: {{ user.username }}</p>
+    <p>phone: {{ user.phone }}</p>
+  </div>
+</div>
