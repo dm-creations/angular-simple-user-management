@@ -13,6 +13,15 @@ export class UsersComponent implements OnChanges {
   users;
   input1;
   editing:Boolean = false;
+  addUser:Boolean = true;
+  numofUsers;
+
+  newUser = {
+    name: "",
+    username: "",
+    phone: "",
+    id: this.numofUsers
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -25,12 +34,24 @@ export class UsersComponent implements OnChanges {
     console.log('changed!')
   }
 
+  numUsers() {
+    Object.keys(this.users).length;
+  }
+
   editUser() {
     this.editing ? this.editing = false : this.editing = true;
   }
 
   submit(user) {
-    this.users.user = user
+    this.newUser.id = Object.keys(this.users).length + 1;
+    this.users.push(user);
+    console.log(this.users);
+    this.newUser = {
+      name: "",
+      username: "",
+      phone: "",
+      id: this.numofUsers
+    }
   }
 
   displayUsers(data) {
@@ -39,7 +60,7 @@ export class UsersComponent implements OnChanges {
   delete(user){
     const url = `${this.usersUrl}/${user.id}`; // DELETE api/users/42
     this.http.delete(url);
-    console.log( this.users[user.id] )
+    delete this.users[user.id -1];
       // .pipe(
       //   // What can I do to get the Response Object Ok: true to show up on console here?
       // );

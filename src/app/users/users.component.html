@@ -1,24 +1,40 @@
-<p>
-users works!
-</p>
-<h2>All Users</h2>
+<h1>Users Page</h1>
+<h2>Add New User</h2>
 <div class="users">
+  <div  *ngIf="addUser == true" class="new-user change">
+        <label>Name: 
+          <input type="text" [(ngModel)]="newUser.name">
+        </label>
+        <label>Username: 
+          <input type="text" [(ngModel)]="newUser.username">
+        </label>
+        <label>Phone number:
+          <input type="text" [(ngModel)]="newUser.phone">
+        </label>
+        <!-- <label>id (auto generated):
+          <input type="number" [(ngModel)]="newUser[0].id" placeholder="{{(users).length + 1}}" readonly>
+        </label> -->
+        <br />
+        <button class="submit" (click)="submit(newUser)">Submit</button>
+  </div>
+  <h2>All Users</h2>
   <div class="user" *ngFor="let user of users">
-    <div class="read-only">
-      <p>Name: {{ user.name }}</p>
-      <p>Username: {{ user.username }}</p>
-      <p>phone: {{ user.phone }}</p>
-      <p>id: {{ user.id }}</p>
-      <button class="button" (click)="deleteUser(user.id)">Delete User</button>
-      <button class="delete" title="delete user" (click)="delete(user)">Delete</button>
-      <button class="button edit" title="edit user" (click)="editUser()">Edit All</button>
-    </div>
-    <div  *ngIf="editing == true" class="change">
-      <input type="text" [(ngModel)]="user.name">
-      <input type="text" [(ngModel)]="user.username">
-      <input type="text" [(ngModel)]="user.phone">
-      <input type="text" [(ngModel)]="user.name">
-      <button class="submit" (click)="submit(user)">Submit</button>
+    <div *ngIf="user">
+      <div class="read-only">
+        <p>Name: {{ user.name }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>phone: {{ user.phone }}</p>
+        <p>id: {{ user.id }}</p>
+        <button class="delete" title="delete user" (click)="delete(user)">Delete</button>
+        <button class="button edit" title="edit user" (click)="editUser()">Edit All</button>
+      </div>
+      <div  *ngIf="editing == true" class="change">
+        <input type="text" [(ngModel)]="user.name">
+        <input type="text" [(ngModel)]="user.username">
+        <input type="text" [(ngModel)]="user.phone">
+        <input type="text" [(ngModel)]="user.name">
+        <button class="save" (click)="editUser()">Save Changes</button>
+      </div>
     </div>
   </div>
 </div>
