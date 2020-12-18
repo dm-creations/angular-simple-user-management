@@ -41,7 +41,10 @@ export class UsersComponent implements OnChanges {
   editUser() {
     this.editing ? this.editing = false : this.editing = true;
   }
-
+  // submit(user) {
+  //   const response = this.http.post("https://jsonplaceholder.typicode.com/users",{name: 'John',id: '2'}).subscribe((data) => this.displayUsers(data))
+  //   console.log(response)
+  // }
   submit(user) {
     this.newUser.id = Object.keys(this.users).length + 1;
     this.users.push(user);
